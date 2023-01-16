@@ -1,0 +1,429 @@
+
+.wrapper {
+  margin: 133px auto;
+  max-width: 540px;
+  color: $clr3;
+  font-family: "JetBrains Mono";
+}
+
+.title {
+  text-align: center;
+  color: $clr4;
+  margin-bottom: 29px;
+  font-size: 16px;
+  @include for-tablet-desktop {
+    font-size: 24px;
+  }
+}
+
+.copy {
+  background-color: $clr2;
+  padding: 0 30px 0 32px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__input {
+    background-color: transparent;
+    border: 0;
+    width: calc(100% - 100px);
+    outline: 0;
+    font-size: 31px;
+    color: $clr3;
+    font-family: "JetBrains Mono Bold";
+    &:disabled {
+      opacity: 0.25;
+    }
+  }
+  &__txt {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 6px 14px 0;
+    color: $clr5;
+  }
+  &__btn {
+    all: unset;
+    // background: transparent;
+    // border: 0;
+    // padding: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    svg {
+      width: 24px;
+      height: 24px;
+      // fill: $clr5;
+      // transition: all 0.3s ease-in-out;
+      // &:hover{
+      //   fill: $clr3;
+      // }
+
+      @include svg-transition-fill($clr5, $clr3);
+    }
+  }
+}
+
+.range {
+  grid-column: 1/-1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  &__title {
+    // font-size: 18px;
+  }
+  &__input {
+    flex-basis: 100%;
+    margin: 25px 0 42px;
+    height: 8px;
+    -webkit-appearance: none;
+
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 28px + var(--ratio) * (100% - 28px));
+    /*progress support*/
+
+    &:focus {
+      outline: none;
+    }
+
+    /*webkit*/
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 100px;
+      background: #e6e5ea;
+      border: none;
+      box-shadow: 0 0 2px black;
+      margin-top: calc(8px * 0.5 - 28px * 0.5);
+    }
+
+    &::-webkit-slider-runnable-track {
+      height: 8px;
+      border: none;
+      border-radius: 0;
+      background: #18171f;
+      box-shadow: none;
+    }
+
+    &::-webkit-slider-thumb:active {
+      background: #000000;
+      border: 2px solid $clr5;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background: linear-gradient(#a4ffaf, #a4ffaf) 0 / var(--sx) 100% no-repeat,
+        #18171f;
+    }
+
+    /*mozilla*/
+    &::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+      border-radius: 100px;
+      background: #e6e5ea;
+      border: none;
+      box-shadow: 0 0 2px black;
+    }
+
+    &::-moz-range-track {
+      height: 8px;
+      border: none;
+      border-radius: 0;
+      background: #18171f;
+      border: 2px solid $clr5;
+      box-shadow: none;
+    }
+
+    &::-moz-range-thumb:active {
+      background: #000000;
+      border: 2px solid $clr5;
+    }
+
+    &::-moz-range-track {
+      background: linear-gradient(#a4ffaf, #a4ffaf) 0 / var(--sx) 100% no-repeat,
+        #18171f;
+    }
+
+    /*ms*/
+    &::-ms-fill-upper {
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &::-ms-fill-lower {
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &::-ms-thumb {
+      width: 28px;
+      height: 28px;
+      border-radius: 100px;
+      background: #e6e5ea;
+      border: none;
+      box-shadow: 0 0 2px black;
+      margin-top: 0;
+      box-sizing: border-box;
+    }
+
+    &::-ms-track {
+      height: 8px;
+      border-radius: 0;
+      background: #18171f;
+      border: none;
+      box-shadow: none;
+      box-sizing: border-box;
+    }
+
+    &::-ms-thumb:active {
+      background: #000000;
+    }
+
+    &::-ms-fill-lower {
+      height: 8px;
+      border-radius: 0px 0 0 0px;
+      margin: -undefined 0 -undefined -undefined;
+      background: #a4ffaf;
+      border: none;
+      border-right-width: 0;
+    }
+  }
+  &__num {
+    color: $clr5;
+    font-size: 32px;
+  }
+}
+.generator {
+  background-color: $clr2;
+  font-size: 16px;
+  padding: 15px 15px;
+  margin-top: 15px;
+  @include for-tablet-desktop {
+    font-size: 18px;
+    padding: 25px 32px;
+    margin-top: 26px;
+  }
+
+  // // display: grid;
+  // // grid-template-columns: 20px 1fr;
+  // // grid-row-gap: 15px;
+  // // grid-column-gap: 5px;
+  // &__label {
+  //   display: block;
+  //   margin: 20px 0;
+  //   cursor: pointer;
+  //   display: flex;
+  //   align-items: center;
+  //   width: fit-content;
+  //   &:before {
+  //     content: "";
+  //     border: 2px solid $clr3;
+  //     display: inline-block;
+  //     width: 20px;
+  //     height: 20px;
+  //     margin-right: 20px;
+  //     //vertical-align: bottom;
+  //     color: transparent;
+  //     transition: 0.3s;
+
+  //   }
+  //   &:after{
+  //     content: "";
+  //   }
+  // }
+  // &__checkbox {
+  //   display: none;
+  //   &:checked + .generator__label:before {
+  //     background-color: $clr5;
+  //     border-color: $clr5;
+  //     color: $clr1;
+
+  //   }
+  //   &:checked + .generator__label:after{
+  //     position: absolute;
+  //     display: none;
+  //     left: 4px;
+  //     bottom: 3px;
+  //     width: 6px;
+  //     height: 9px;
+  //     border: solid $clr1;
+  //     border-width: 0 3px 3px 0;
+  //     transform: rotate(45deg);
+  //   }
+  // }
+  &__btn {
+    background-color: $clr5;
+    color: $clr1;
+    width: 100%;
+    border: 0;
+    padding: 10px;
+    //grid-column: 1/-1;
+    // font-size: 18px;
+    text-transform: uppercase;
+    font-family: "JetBrains Mono Bold";
+    height: 65px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      border: 2px solid $clr5;
+      color: $clr5;
+      background-color: transparent;
+      svg {
+        fill: $clr5;
+      }
+    }
+    svg {
+      vertical-align: middle;
+      width: 18px;
+      height: 18px;
+      fill: $clr1;
+      stroke: $clr1;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.strength {
+  background-color: $clr1;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 0 30px;
+  margin: 32px 0 32px;
+  height: 72px;
+
+  &__title {
+    margin-right: auto;
+    color: $clr4;
+    // font-size: 18px;
+    font-family: "JetBrains Mono Bold";
+  }
+  &__txt {
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  &__level {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.level {
+  width: 10px;
+  height: 28px;
+  border: 2px solid;
+  &--fill{
+    background-color: currentColor;
+  }
+  &--too-weak-fill {
+    border-color: $clr6;
+    background-color: $clr6;
+  }
+  &--weak-fill {
+    border-color: $clr7;
+    background-color: $clr7;
+  }
+  &--medium-fill {
+    border-color: $clr8;
+    background-color: $clr8;
+  }
+  &--strong-fill {
+    border-color: $clr5;
+    background-color: $clr5;
+  }
+}
+
+.option {
+  display: block;
+  position: relative;
+  padding-left: 43px;
+  cursor: pointer;
+  // font-size: 18px;
+  margin-bottom: 19px;
+  width: fit-content;
+  &:hover .option__checkmark {
+    border-color: $clr5;
+  }
+  &__input {
+    visibility: hidden;
+    &:checked ~ .option__checkmark {
+      background-color: $clr5;
+      border: 2px solid $clr5;
+
+      &:after {
+        display: block;
+      }
+    }
+  }
+  &__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid $clr3;
+    transition: all 0.3s ease-in-out;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 4px;
+      bottom: 3px;
+      width: 4px;
+      height: 9px;
+      border: solid $clr1;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-1-11 16:37:43
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation flip-horizontal-bottom
+ * ----------------------------------------
+ */
+ .rotate-scale-up {
+	-webkit-animation: rotate-scale-up 0.65s linear both;
+	        animation: rotate-scale-up 0.65s linear both;
+}
+
+
+@-webkit-keyframes rotate-scale-up {
+ 0% {
+   -webkit-transform: scale(1) rotateZ(0);
+           transform: scale(1) rotateZ(0);
+ }
+ 50% {
+   -webkit-transform: scale(2) rotateZ(180deg);
+           transform: scale(2) rotateZ(180deg);
+ }
+ 100% {
+   -webkit-transform: scale(1) rotateZ(360deg);
+           transform: scale(1) rotateZ(360deg);
+ }
+}
+@keyframes rotate-scale-up {
+ 0% {
+   -webkit-transform: scale(1) rotateZ(0);
+           transform: scale(1) rotateZ(0);
+ }
+ 50% {
+   -webkit-transform: scale(2) rotateZ(180deg);
+           transform: scale(2) rotateZ(180deg);
+ }
+ 100% {
+   -webkit-transform: scale(1) rotateZ(360deg);
+           transform: scale(1) rotateZ(360deg);
+ }
+}
