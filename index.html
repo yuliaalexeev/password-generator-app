@@ -3,70 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="styles/styles.css" >
   <title>Frontend Mentor | Password generator app</title>
 </head>
-<body>
-  <body onload="onInit()">
-    <div class="wrapper " >
-        <h2 class="title">Password Generator</h2>
-
-        <div class="copy">
-            <input class="copy__input" type="text" value="" id="copyPassword" readonly disabled aria-label="copied password"/>
-            <span class="copy__txt">Copied</span>
-            <button class="copy__btn" onclick="onCopyPassword()" aria-label="copy password button">
-                <svg aria-hidden="true">
-                    <use xlink:href="assets/images/sprite.svg#copy"></use>
-                </svg>
-            </button>
-        </div>
-
-        <form class="generator">
-            <div class="range">
-                <label class="range__title" for="characterLength">Character Length</label>
-                <span class="range__num">0</span>
-                <input class="range__input" type="range" id="characterLength" name="characterLength" value="0" min="0" max="20" oninput="onSelectedRangeNumber()" aria-labelledby="characterLength"/>
-            </div>
-
-            <label class="option" for="includeUppercaseLetters" tabindex="0">
-                Include Uppercase Letters
-                <input class="option__input" type="checkbox" id="includeUppercaseLetters" aria-label="include uppercase letters">
-                <span class="option__checkmark"></span>
-            </label>
-            
-            <label class="option" for="includeLowercaseLetters" tabindex="0">
-                Include Lowercase Letters
-                <input class="option__input" type="checkbox" name="include-lowercase" id="includeLowercaseLetters" aria-label="include lowercase letters">
-                <span class="option__checkmark"></span>
-            </label>
-            
-            <label class="option" for="includeNumbers" tabindex="0">
-                Include Numbers
-                <input class="option__input" type="checkbox" name="include-numbers" id="includeNumbers" aria-label="include numbers">
-                <span class="option__checkmark"></span>
-            </label>
-            
-            <label class="option" for="includeSymbols" tabindex="0">
-                Include Symbols
-                <input class="option__input" type="checkbox" name="include-symbols" id="includeSymbols" aria-label="include symbols">
-                <span class="option__checkmark"></span>
-            </label>
-            
-            <div class="strength">
-                <span class="strength__title">Strength</span>
-                <span class="strength__txt"></span>
-                <span class="strength__level"></span>
-            </div>
-
-            <button class="generator__btn" onclick="onGeneratePassword(event)" aria-label="generate password">Generate 
-                <svg>
-                    <use xlink:href="assets/images/sprite.svg#arrow-left"></use>
-                </svg>
-            </button>
-        </div>
+<body onload="onInit()">
+  <div class="wrapper">
+    <h2 class="title">Password Generator</h2>
+    <div class="copy">
+      <input class="copy__input" type="text" value="" id="copyPassword" readonly disabled aria-label="copied password">
+      <span class="copy__txt">Copied</span>
+      <button class="copy__btn" onclick="onCopyPassword()" aria-label="copy password button">
+        <svg aria-hidden="true">
+          <use xlink:href="assets/images/sprite.svg#icon-copy"></use>
+        </svg>
+      </button>
     </div>
+
+    <form class="generator">
+      <div class="range">
+        <label class="range__title" for="characterLength">Character Length</label>
+        <span class="range__num">0</span>
+        <input class="range__input" type="range" id="characterLength" name="characterLength" value="0" min="0" max="20" oninput="onSelectedRangeNumber()" aria-labelledby="characterLength">
+      </div>
+
+      <label class="option" for="includeUppercaseLetters" tabindex="0">
+        Include Uppercase Letters
+        <input class="option__input" type="checkbox" id="includeUppercaseLetters" aria-label="include uppercase letters">
+        <span class="option__checkmark"></span>
+      </label>
+      
+      <label class="option" for="includeLowercaseLetters" tabindex="0">
+        Include Lowercase Letters
+        <input class="option__input" type="checkbox" name="include-lowercase" id="includeLowercaseLetters" aria-label="include lowercase letters">
+        <span class="option__checkmark"></span>
+      </label>
+      
+      <label class="option" for="includeNumbers" tabindex="0">
+        Include Numbers
+        <input class="option__input" type="checkbox" name="include-numbers" id="includeNumbers" aria-label="include numbers">
+        <span class="option__checkmark"></span>
+      </label>
+      
+      <label class="option" for="includeSymbols" tabindex="0">
+        Include Symbols
+        <input class="option__input" type="checkbox" name="include-symbols" id="includeSymbols" aria-label="include symbols">
+        <span class="option__checkmark"></span>
+      </label>
+      
+      <div class="strength">
+        <span class="strength__title">Strength</span>
+        <span class="strength__txt"></span>
+        <span class="strength__level"></span>
+      </div>
+
+      <button class="generator__btn" onclick="onGeneratePassword(event)" aria-label="generate password">Generate 
+        <svg>
+          <use xlink:href="assets/images/sprite.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </form>
+  </div>
+  <script src="js/index.js"></script>
+  <script src="js/services/service.js"></script>
+  <script src="js/services/util-service.js"></script>
 </body>
-<script async src="js/index.js"></script>
 </html>
