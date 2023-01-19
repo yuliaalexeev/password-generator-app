@@ -1,36 +1,47 @@
-
 .wrapper {
-  margin: 133px auto;
+  margin: 87px auto;
   max-width: 540px;
   color: $clr3;
   font-family: "JetBrains Mono";
+  animation: bounce 1s;
+  @include for-tablet-desktop {
+    margin: 133px auto;
+  }
 }
 
 .title {
   text-align: center;
   color: $clr4;
-  margin-bottom: 29px;
+  margin-bottom: 15x;
   font-size: 16px;
   @include for-tablet-desktop {
     font-size: 24px;
+    margin-bottom: 29px;
   }
 }
 
 .copy {
   background-color: $clr2;
-  padding: 0 30px 0 32px;
-  height: 80px;
+  height: 64px;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include for-tablet-desktop {
+    height: 80px;
+    padding: 0 30px 0 32px;
+  }
   &__input {
     background-color: transparent;
     border: 0;
     width: calc(100% - 100px);
     outline: 0;
-    font-size: 31px;
+    font-size: 24px;
     color: $clr3;
     font-family: "JetBrains Mono Bold";
+    @include for-tablet-desktop {
+      font-size: 31px;
+    }
     &:disabled {
       opacity: 0.25;
     }
@@ -43,20 +54,15 @@
   }
   &__btn {
     all: unset;
-    // background: transparent;
-    // border: 0;
-    // padding: 0;
     margin-top: 10px;
     cursor: pointer;
     svg {
-      width: 24px;
-      height: 24px;
-      // fill: $clr5;
-      // transition: all 0.3s ease-in-out;
-      // &:hover{
-      //   fill: $clr3;
-      // }
-
+      width: 20px;
+      height: 20px;
+      @include for-tablet-desktop {
+        width: 24px;
+        height: 24px;
+      }
       @include svg-transition-fill($clr5, $clr3);
     }
   }
@@ -68,24 +74,21 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  &__title {
-    // font-size: 18px;
-  }
   &__input {
     flex-basis: 100%;
-    margin: 25px 0 42px;
+    margin: 21px 0 42px;
     height: 8px;
     -webkit-appearance: none;
-
     --range: calc(var(--max) - var(--min));
     --ratio: calc((var(--value) - var(--min)) / var(--range));
     --sx: calc(0.5 * 28px + var(--ratio) * (100% - 28px));
+    @include for-tablet-desktop {
+      margin: 25px 0 42px;
+    }
     /*progress support*/
-
     &:focus {
       outline: none;
     }
-
     /*webkit*/
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -97,7 +100,6 @@
       box-shadow: 0 0 2px black;
       margin-top: calc(8px * 0.5 - 28px * 0.5);
     }
-
     &::-webkit-slider-runnable-track {
       height: 8px;
       border: none;
@@ -105,17 +107,14 @@
       background: #18171f;
       box-shadow: none;
     }
-
     &::-webkit-slider-thumb:active {
       background: #000000;
       border: 2px solid $clr5;
     }
-
     &::-webkit-slider-runnable-track {
       background: linear-gradient(#a4ffaf, #a4ffaf) 0 / var(--sx) 100% no-repeat,
         #18171f;
     }
-
     /*mozilla*/
     &::-moz-range-thumb {
       width: 28px;
@@ -125,7 +124,6 @@
       border: none;
       box-shadow: 0 0 2px black;
     }
-
     &::-moz-range-track {
       height: 8px;
       border: none;
@@ -134,28 +132,23 @@
       border: 2px solid $clr5;
       box-shadow: none;
     }
-
     &::-moz-range-thumb:active {
       background: #000000;
       border: 2px solid $clr5;
     }
-
     &::-moz-range-track {
       background: linear-gradient(#a4ffaf, #a4ffaf) 0 / var(--sx) 100% no-repeat,
         #18171f;
     }
-
     /*ms*/
     &::-ms-fill-upper {
       background: transparent;
       border-color: transparent;
     }
-
     &::-ms-fill-lower {
       background: transparent;
       border-color: transparent;
     }
-
     &::-ms-thumb {
       width: 28px;
       height: 28px;
@@ -166,7 +159,6 @@
       margin-top: 0;
       box-sizing: border-box;
     }
-
     &::-ms-track {
       height: 8px;
       border-radius: 0;
@@ -175,11 +167,9 @@
       box-shadow: none;
       box-sizing: border-box;
     }
-
     &::-ms-thumb:active {
       background: #000000;
     }
-
     &::-ms-fill-lower {
       height: 8px;
       border-radius: 0px 0 0 0px;
@@ -191,9 +181,13 @@
   }
   &__num {
     color: $clr5;
-    font-size: 32px;
+    font-size: 24px;
+    @include for-tablet-desktop {
+      font-size: 32px;
+    }
   }
 }
+
 .generator {
   background-color: $clr2;
   font-size: 16px;
@@ -204,82 +198,38 @@
     padding: 25px 32px;
     margin-top: 26px;
   }
-
-  // // display: grid;
-  // // grid-template-columns: 20px 1fr;
-  // // grid-row-gap: 15px;
-  // // grid-column-gap: 5px;
-  // &__label {
-  //   display: block;
-  //   margin: 20px 0;
-  //   cursor: pointer;
-  //   display: flex;
-  //   align-items: center;
-  //   width: fit-content;
-  //   &:before {
-  //     content: "";
-  //     border: 2px solid $clr3;
-  //     display: inline-block;
-  //     width: 20px;
-  //     height: 20px;
-  //     margin-right: 20px;
-  //     //vertical-align: bottom;
-  //     color: transparent;
-  //     transition: 0.3s;
-
-  //   }
-  //   &:after{
-  //     content: "";
-  //   }
-  // }
-  // &__checkbox {
-  //   display: none;
-  //   &:checked + .generator__label:before {
-  //     background-color: $clr5;
-  //     border-color: $clr5;
-  //     color: $clr1;
-
-  //   }
-  //   &:checked + .generator__label:after{
-  //     position: absolute;
-  //     display: none;
-  //     left: 4px;
-  //     bottom: 3px;
-  //     width: 6px;
-  //     height: 9px;
-  //     border: solid $clr1;
-  //     border-width: 0 3px 3px 0;
-  //     transform: rotate(45deg);
-  //   }
-  // }
   &__btn {
     background-color: $clr5;
     color: $clr1;
     width: 100%;
     border: 0;
     padding: 10px;
-    //grid-column: 1/-1;
-    // font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     font-family: "JetBrains Mono Bold";
-    height: 65px;
+    height: 56px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    @include for-tablet-desktop {
+      height: 65px;
+      font-size: 18px;
+    }
     &:hover {
       border: 2px solid $clr5;
       color: $clr5;
       background-color: transparent;
       svg {
         fill: $clr5;
+        margin-left: 20px;
       }
     }
     svg {
       vertical-align: middle;
-      width: 18px;
-      height: 18px;
+      width: 13px;
+      height: 13px;
       fill: $clr1;
-      stroke: $clr1;
       transition: all 0.3s ease-in-out;
+      margin: 0 0 2px 12px;
     }
   }
 }
@@ -289,19 +239,25 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  padding: 0 30px;
-  margin: 32px 0 32px;
-  height: 72px;
-
+  padding: 0 15px;
+  margin: 32px 0 15px;
+  height: 56px;
+  @include for-tablet-desktop {
+    padding: 0 30px;
+    margin: 32px 0 32px;
+    height: 72px;
+  }
   &__title {
     margin-right: auto;
     color: $clr4;
-    // font-size: 18px;
     font-family: "JetBrains Mono Bold";
   }
   &__txt {
-    font-size: 24px;
+    font-size: 18px;
     margin-right: 15px;
+    @include for-tablet-desktop {
+      font-size: 24px;
+    }
   }
   &__level {
     display: flex;
@@ -313,7 +269,7 @@
   width: 10px;
   height: 28px;
   border: 2px solid;
-  &--fill{
+  &--fill {
     background-color: currentColor;
   }
   &--too-weak-fill {
@@ -339,18 +295,19 @@
   position: relative;
   padding-left: 43px;
   cursor: pointer;
-  // font-size: 18px;
-  margin-bottom: 19px;
+  margin-bottom: 16px;
   width: fit-content;
+  @include for-tablet-desktop {
+    margin-bottom: 19px;
+  }
   &:hover .option__checkmark {
     border-color: $clr5;
   }
   &__input {
-    visibility: hidden;
+    display: none;
     &:checked ~ .option__checkmark {
       background-color: $clr5;
       border: 2px solid $clr5;
-
       &:after {
         display: block;
       }
@@ -364,7 +321,6 @@
     width: 20px;
     border: 2px solid $clr3;
     transition: all 0.3s ease-in-out;
-
     &:after {
       content: "";
       position: absolute;
@@ -378,52 +334,4 @@
       transform: rotate(45deg);
     }
   }
-}
-
-
-/* ----------------------------------------------
- * Generated by Animista on 2023-1-11 16:37:43
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation flip-horizontal-bottom
- * ----------------------------------------
- */
- .rotate-scale-up {
-	-webkit-animation: rotate-scale-up 0.65s linear both;
-	        animation: rotate-scale-up 0.65s linear both;
-}
-
-
-@-webkit-keyframes rotate-scale-up {
- 0% {
-   -webkit-transform: scale(1) rotateZ(0);
-           transform: scale(1) rotateZ(0);
- }
- 50% {
-   -webkit-transform: scale(2) rotateZ(180deg);
-           transform: scale(2) rotateZ(180deg);
- }
- 100% {
-   -webkit-transform: scale(1) rotateZ(360deg);
-           transform: scale(1) rotateZ(360deg);
- }
-}
-@keyframes rotate-scale-up {
- 0% {
-   -webkit-transform: scale(1) rotateZ(0);
-           transform: scale(1) rotateZ(0);
- }
- 50% {
-   -webkit-transform: scale(2) rotateZ(180deg);
-           transform: scale(2) rotateZ(180deg);
- }
- 100% {
-   -webkit-transform: scale(1) rotateZ(360deg);
-           transform: scale(1) rotateZ(360deg);
- }
 }

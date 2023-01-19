@@ -1,9 +1,9 @@
 @mixin for-mobile-only {
-  @media (max-width: 767px) { @content; }
+  @media (max-width: $break-mobile) { @content; }
 }
 
 @mixin for-tablet-desktop {
-  @media (min-width: 768px) { @content; }
+  @media (min-width: $break-tablet-desktop) { @content; }
 }
 
 @mixin svg-transition-fill($currentColor, $hoverColor){
@@ -13,12 +13,3 @@
     fill: $hoverColor;
   }
 }
-// @mixin for-desktop {
-//   @media (min-width: 1024px) { @content; }
-// }
-// @mixin for-desktop-up {
-//   @media (min-width: 1200px) { @content; }
-// }
-// @mixin for-big-desktop-up {
-//   @media (min-width: 1800px) { @content; }
-// }

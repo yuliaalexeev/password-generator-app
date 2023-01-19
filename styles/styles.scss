@@ -1,15 +1,13 @@
 // SETUP
-@import 'setup/typography';
-@import 'setup/variables';
-@import 'setup/mixins';
-// @import 'setup/functions'; 
+@use 'setup/typography';
+@use 'setup/variables';
+@use 'setup/mixins';
+@use 'setup/animations'; 
 
 // BASICS
-/* @import 'basics/helpers'; */
-@import 'basics/base';
-/* @import 'basics/layout'; */
+@use 'basics/base';
 
 // COMPONENTS
-@import 'components/generator'; 
+@use 'components/generator';  
 
 

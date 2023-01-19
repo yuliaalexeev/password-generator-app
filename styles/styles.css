@@ -6,7 +6,28 @@
   font-family: "JetBrains Mono Bold";
   src: url("../assets/fonts/JetBrainsMono-Bold.ttf");
 }
-/* @import 'basics/helpers'; */
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -25,42 +46,60 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1em;
 }
 
-/* @import 'basics/layout'; */
 .wrapper {
-  margin: 133px auto;
+  margin: 87px auto;
   max-width: 540px;
   color: #e6e5ea;
   font-family: "JetBrains Mono";
+  -webkit-animation: bounce 1s;
+          animation: bounce 1s;
+}
+@media (min-width: 768px) {
+  .wrapper {
+    margin: 133px auto;
+  }
 }
 
 .title {
   text-align: center;
   color: #817d92;
-  margin-bottom: 29px;
+  margin-bottom: 15x;
   font-size: 16px;
 }
 @media (min-width: 768px) {
   .title {
     font-size: 24px;
+    margin-bottom: 29px;
   }
 }
 
 .copy {
   background-color: #24232c;
-  padding: 0 30px 0 32px;
-  height: 80px;
+  height: 64px;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .copy {
+    height: 80px;
+    padding: 0 30px 0 32px;
+  }
 }
 .copy__input {
   background-color: transparent;
   border: 0;
   width: calc(100% - 100px);
   outline: 0;
-  font-size: 31px;
+  font-size: 24px;
   color: #e6e5ea;
   font-family: "JetBrains Mono Bold";
+}
+@media (min-width: 768px) {
+  .copy__input {
+    font-size: 31px;
+  }
 }
 .copy__input:disabled {
   opacity: 0.25;
@@ -77,10 +116,16 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 .copy__btn svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   fill: #a4ffaf;
   transition: all 0.3s ease-in-out;
+}
+@media (min-width: 768px) {
+  .copy__btn svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 .copy__btn svg:hover {
   fill: #e6e5ea;
@@ -95,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .range__input {
   flex-basis: 100%;
-  margin: 25px 0 42px;
+  margin: 21px 0 42px;
   height: 8px;
   -webkit-appearance: none;
   --range: calc(var(--max) - var(--min));
@@ -105,6 +150,11 @@ h1, h2, h3, h4, h5, h6 {
   /*webkit*/
   /*mozilla*/
   /*ms*/
+}
+@media (min-width: 768px) {
+  .range__input {
+    margin: 25px 0 42px;
+  }
 }
 .range__input:focus {
   outline: none;
@@ -195,7 +245,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .range__num {
   color: #a4ffaf;
-  font-size: 32px;
+  font-size: 24px;
+}
+@media (min-width: 768px) {
+  .range__num {
+    font-size: 32px;
+  }
 }
 
 .generator {
@@ -217,11 +272,18 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   border: 0;
   padding: 10px;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: "JetBrains Mono Bold";
-  height: 65px;
+  height: 56px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .generator__btn {
+    height: 65px;
+    font-size: 18px;
+  }
 }
 .generator__btn:hover {
   border: 2px solid #a4ffaf;
@@ -230,14 +292,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 .generator__btn:hover svg {
   fill: #a4ffaf;
+  margin-left: 20px;
 }
 .generator__btn svg {
   vertical-align: middle;
-  width: 18px;
-  height: 18px;
+  width: 13px;
+  height: 13px;
   fill: #18171f;
-  stroke: #18171f;
   transition: all 0.3s ease-in-out;
+  margin: 0 0 2px 12px;
 }
 
 .strength {
@@ -245,9 +308,16 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  padding: 0 30px;
-  margin: 32px 0 32px;
-  height: 72px;
+  padding: 0 15px;
+  margin: 32px 0 15px;
+  height: 56px;
+}
+@media (min-width: 768px) {
+  .strength {
+    padding: 0 30px;
+    margin: 32px 0 32px;
+    height: 72px;
+  }
 }
 .strength__title {
   margin-right: auto;
@@ -255,8 +325,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "JetBrains Mono Bold";
 }
 .strength__txt {
-  font-size: 24px;
+  font-size: 18px;
   margin-right: 15px;
+}
+@media (min-width: 768px) {
+  .strength__txt {
+    font-size: 24px;
+  }
 }
 .strength__level {
   display: flex;
@@ -293,16 +368,21 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   padding-left: 43px;
   cursor: pointer;
-  margin-bottom: 19px;
+  margin-bottom: 16px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+@media (min-width: 768px) {
+  .option {
+    margin-bottom: 19px;
+  }
 }
 .option:hover .option__checkmark {
   border-color: #a4ffaf;
 }
 .option__input {
-  visibility: hidden;
+  display: none;
 }
 .option__input:checked ~ .option__checkmark {
   background-color: #a4ffaf;
@@ -331,43 +411,4 @@ h1, h2, h3, h4, h5, h6 {
   border: solid #18171f;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
-}
-
-/* ----------------------------------------------
- * Generated by Animista on 2023-1-11 16:37:43
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-/**
- * ----------------------------------------
- * animation flip-horizontal-bottom
- * ----------------------------------------
- */
-.rotate-scale-up {
-  -webkit-animation: rotate-scale-up 0.65s linear both;
-  animation: rotate-scale-up 0.65s linear both;
-}
-
-@-webkit-keyframes rotate-scale-up {
-  0% {
-    transform: scale(1) rotateZ(0);
-  }
-  50% {
-    transform: scale(2) rotateZ(180deg);
-  }
-  100% {
-    transform: scale(1) rotateZ(360deg);
-  }
-}
-@keyframes rotate-scale-up {
-  0% {
-    transform: scale(1) rotateZ(0);
-  }
-  50% {
-    transform: scale(2) rotateZ(180deg);
-  }
-  100% {
-    transform: scale(1) rotateZ(360deg);
-  }
 }
