@@ -1,8 +1,4 @@
-// const gCharacters = "abcdefghijklmnopqrstuvwxyz";
-// const gNumbers = "0123456789";
-// const gSymbols = '~`!@#$%^&*()_-+={[}]|:;"<,>.?"/';
-
-
-// let gPasswordLength = 0;
-
-// let gGeneratedPassword = "";
+function shuffleString(includedPasswordOptioins){
+  let shuffledNumbers = [...includedPasswordOptioins].sort(() => Math.random() - 0.5);
+  return shuffledNumbers.join("");
+}
