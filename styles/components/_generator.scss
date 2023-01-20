@@ -1,33 +1,36 @@
+@use "../setup/variables";
+@use "../setup/mixins";
+
 .wrapper {
   margin: 87px auto;
   max-width: 540px;
-  color: $clr3;
+  color: variables.$clr3;
   font-family: "JetBrains Mono";
   animation: bounce 1s;
-  @include for-tablet-desktop {
+  @include mixins.for-tablet-desktop {
     margin: 133px auto;
   }
 }
 
 .title {
   text-align: center;
-  color: $clr4;
+  color: variables.$clr4;
   margin-bottom: 15x;
   font-size: 16px;
-  @include for-tablet-desktop {
+  @include mixins.for-tablet-desktop {
     font-size: 24px;
     margin-bottom: 29px;
   }
 }
 
 .copy {
-  background-color: $clr2;
+  background-color: variables.$clr2;
   height: 64px;
   padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @include for-tablet-desktop {
+  @include mixins.for-tablet-desktop {
     height: 80px;
     padding: 0 30px 0 32px;
   }
@@ -37,20 +40,20 @@
     width: calc(100% - 100px);
     outline: 0;
     font-size: 24px;
-    color: $clr3;
+    color: variables.$clr3;
     font-family: "JetBrains Mono Bold";
-    @include for-tablet-desktop {
+    @include mixins.for-tablet-desktop {
       font-size: 31px;
     }
     &:disabled {
-      opacity: 0.25;
+      opacity: .25;
     }
   }
   &__txt {
     font-size: 18px;
     text-transform: uppercase;
-    margin: 6px 14px 0;
-    color: $clr5;
+    margin: 6px 14px 0 0;
+    color: variables.$clr5; 
   }
   &__btn {
     all: unset;
@@ -59,11 +62,11 @@
     svg {
       width: 20px;
       height: 20px;
-      @include for-tablet-desktop {
+      @include mixins.for-tablet-desktop {
         width: 24px;
         height: 24px;
       }
-      @include svg-transition-fill($clr5, $clr3);
+      @include mixins.svg-transition-fill(variables.$clr5, variables.$clr3);
     }
   }
 }
@@ -78,11 +81,11 @@
     flex-basis: 100%;
     margin: 21px 0 42px;
     height: 8px;
-    -webkit-appearance: none;
+    appearance: none;
     --range: calc(var(--max) - var(--min));
     --ratio: calc((var(--value) - var(--min)) / var(--range));
-    --sx: calc(0.5 * 28px + var(--ratio) * (100% - 28px));
-    @include for-tablet-desktop {
+    --sx: calc(.5 * 28px + var(--ratio) * (100% - 28px));
+    @include mixins.for-tablet-desktop {
       margin: 25px 0 42px;
     }
     /*progress support*/
@@ -95,50 +98,50 @@
       width: 28px;
       height: 28px;
       border-radius: 100px;
-      background: #e6e5ea;
+      background: variables.$clr3;
       border: none;
-      box-shadow: 0 0 2px black;
-      margin-top: calc(8px * 0.5 - 28px * 0.5);
+      box-shadow: 0 0 2px variables.$clr9;
+      margin-top: calc(8px * .5 - 28px * .5);
     }
     &::-webkit-slider-runnable-track {
       height: 8px;
       border: none;
       border-radius: 0;
-      background: #18171f;
+      background: variables.$clr1;
       box-shadow: none;
     }
     &::-webkit-slider-thumb:active {
-      background: #000000;
-      border: 2px solid $clr5;
+      background: variables.$clr9;
+      border: 2px solid variables.$clr5;
     }
     &::-webkit-slider-runnable-track {
-      background: linear-gradient(#a4ffaf, #a4ffaf) 0 / var(--sx) 100% no-repeat,
-        #18171f;
+      background: linear-gradient(variables.$clr5, variables.$clr5) 0 / var(--sx) 100% no-repeat,
+        variables.$clr1;
     }
     /*mozilla*/
     &::-moz-range-thumb {
       width: 28px;
       height: 28px;
       border-radius: 100px;
-      background: #e6e5ea;
+      background: variables.$clr3;
       border: none;
-      box-shadow: 0 0 2px black;
+      box-shadow: 0 0 2px variables.$clr9;
     }
     &::-moz-range-track {
       height: 8px;
       border: none;
       border-radius: 0;
-      background: #18171f;
-      border: 2px solid $clr5;
+      background: variables.$clr1;
+      border: 2px solid variables.$clr5;
       box-shadow: none;
     }
     &::-moz-range-thumb:active {
-      background: #000000;
-      border: 2px solid $clr5;
+      background: variables.$clr9;
+      border: 2px solid variables.$clr5;
     }
     &::-moz-range-track {
-      background: linear-gradient(#a4ffaf, #a4ffaf) 0 / var(--sx) 100% no-repeat,
-        #18171f;
+      background: linear-gradient(variables.$clr5, variables.$clr5) 0 / var(--sx) 100% no-repeat,
+      variables.$clr1;
     }
     /*ms*/
     &::-ms-fill-upper {
@@ -153,54 +156,54 @@
       width: 28px;
       height: 28px;
       border-radius: 100px;
-      background: #e6e5ea;
+      background: variables.$clr3;
       border: none;
-      box-shadow: 0 0 2px black;
+      box-shadow: 0 0 2px variables.$clr9;
       margin-top: 0;
       box-sizing: border-box;
     }
     &::-ms-track {
       height: 8px;
       border-radius: 0;
-      background: #18171f;
+      background: variables.$clr1;
       border: none;
       box-shadow: none;
       box-sizing: border-box;
     }
     &::-ms-thumb:active {
-      background: #000000;
+      background: variables.$clr9;
     }
     &::-ms-fill-lower {
       height: 8px;
       border-radius: 0px 0 0 0px;
       margin: -undefined 0 -undefined -undefined;
-      background: #a4ffaf;
+      background: variables.$clr5;
       border: none;
       border-right-width: 0;
     }
   }
   &__num {
-    color: $clr5;
+    color: variables.$clr5;
     font-size: 24px;
-    @include for-tablet-desktop {
+    @include mixins.for-tablet-desktop {
       font-size: 32px;
     }
   }
 }
 
 .generator {
-  background-color: $clr2;
+  background-color: variables.$clr2;
   font-size: 16px;
   padding: 15px 15px;
   margin-top: 15px;
-  @include for-tablet-desktop {
+  @include mixins.for-tablet-desktop {
     font-size: 18px;
     padding: 25px 32px;
     margin-top: 26px;
   }
   &__btn {
-    background-color: $clr5;
-    color: $clr1;
+    background-color: variables.$clr5;
+    color: variables.$clr1;
     width: 100%;
     border: 0;
     padding: 10px;
@@ -208,18 +211,18 @@
     text-transform: uppercase;
     font-family: "JetBrains Mono Bold";
     height: 56px;
-    transition: all 0.3s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
-    @include for-tablet-desktop {
+    @include mixins.for-tablet-desktop {
       height: 65px;
       font-size: 18px;
     }
     &:hover {
-      border: 2px solid $clr5;
-      color: $clr5;
+      border: 2px solid variables.$clr5;
+      color: variables.$clr5;
       background-color: transparent;
       svg {
-        fill: $clr5;
+        fill: variables.$clr5;
         margin-left: 20px;
       }
     }
@@ -227,35 +230,35 @@
       vertical-align: middle;
       width: 13px;
       height: 13px;
-      fill: $clr1;
-      transition: all 0.3s ease-in-out;
+      fill: variables.$clr1;
+      transition: all .3s ease-in-out;
       margin: 0 0 2px 12px;
     }
   }
 }
 
 .strength {
-  background-color: $clr1;
+  background-color: variables.$clr1;
   display: flex;
   align-items: center;
   text-transform: uppercase;
   padding: 0 15px;
   margin: 32px 0 15px;
   height: 56px;
-  @include for-tablet-desktop {
+  @include mixins.for-tablet-desktop {
     padding: 0 30px;
     margin: 32px 0 32px;
     height: 72px;
   }
   &__title {
     margin-right: auto;
-    color: $clr4;
+    color: variables.$clr4;
     font-family: "JetBrains Mono Bold";
   }
   &__txt {
     font-size: 18px;
     margin-right: 15px;
-    @include for-tablet-desktop {
+    @include mixins.for-tablet-desktop {
       font-size: 24px;
     }
   }
@@ -273,20 +276,20 @@
     background-color: currentColor;
   }
   &--too-weak-fill {
-    border-color: $clr6;
-    background-color: $clr6;
+    border-color: variables.$clr6;
+    background-color: variables.$clr6;
   }
   &--weak-fill {
-    border-color: $clr7;
-    background-color: $clr7;
+    border-color: variables.$clr7;
+    background-color: variables.$clr7;
   }
   &--medium-fill {
-    border-color: $clr8;
-    background-color: $clr8;
+    border-color: variables.$clr8;
+    background-color: variables.$clr8;
   }
   &--strong-fill {
-    border-color: $clr5;
-    background-color: $clr5;
+    border-color: variables.$clr5;
+    background-color: variables.$clr5;
   }
 }
 
@@ -297,17 +300,17 @@
   cursor: pointer;
   margin-bottom: 16px;
   width: fit-content;
-  @include for-tablet-desktop {
+  @include mixins.for-tablet-desktop {
     margin-bottom: 19px;
   }
   &:hover .option__checkmark {
-    border-color: $clr5;
+    border-color: variables.$clr5;
   }
   &__input {
     display: none;
     &:checked ~ .option__checkmark {
-      background-color: $clr5;
-      border: 2px solid $clr5;
+      background-color: variables.$clr5;
+      border: 2px solid variables.$clr5;
       &:after {
         display: block;
       }
@@ -319,8 +322,8 @@
     left: 0;
     height: 20px;
     width: 20px;
-    border: 2px solid $clr3;
-    transition: all 0.3s ease-in-out;
+    border: 2px solid variables.$clr3;
+    transition: all .3s ease-in-out;
     &:after {
       content: "";
       position: absolute;
@@ -329,7 +332,7 @@
       bottom: 3px;
       width: 4px;
       height: 9px;
-      border: solid $clr1;
+      border: solid variables.$clr1;
       border-width: 0 3px 3px 0;
       transform: rotate(45deg);
     }

@@ -1,13 +1,10 @@
-// SETUP
-@use 'setup/typography';
-@use 'setup/variables';
-@use 'setup/mixins';
-@use 'setup/animations'; 
+@use "setup/variables";
+@use "setup/typography";
+@use "setup/mixins";
+@use "setup/animations"; 
 
-// BASICS
-@use 'basics/base';
+@use "basics/base";
 
-// COMPONENTS
-@use 'components/generator';  
+@use "components/generator";   
 
 

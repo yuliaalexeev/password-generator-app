@@ -1,9 +1,11 @@
+@use "../setup/variables";
+
 @mixin for-mobile-only {
-  @media (max-width: $break-mobile) { @content; }
+  @media (max-width: variables.$break-mobile) { @content; }
 }
 
 @mixin for-tablet-desktop {
-  @media (min-width: $break-tablet-desktop) { @content; }
+  @media (min-width: variables.$break-tablet-desktop) { @content; }
 }
 
 @mixin svg-transition-fill($currentColor, $hoverColor){
