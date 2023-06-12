@@ -1,5 +1,5 @@
 # password-generator-app
-[[https://instayul.onrender.com](https://yuliaalexeev.github.io/password-generator-app/)](https://yuliaalexeev.github.io/password-generator-app/)
+[https://yuliaalexeev.github.io/password-generator-app](https://yuliaalexeev.github.io/password-generator-app)
 Password generation app implemented using CSS, HTML, and Vanilla JavaScript.
 
 ## Features
